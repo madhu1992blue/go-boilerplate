@@ -1,4 +1,4 @@
-.PHONY: build-demo
+.PHONY: build-demo inspect-demo
 
 bin:
 	mkdir -p bin
@@ -16,3 +16,8 @@ build-demo: bin
 	# ./cmd/demo: is the path to the main package.
 	CGO_ENABLED=0 go build -trimpath -pgo=auto -ldflags="-s -w" -o bin/demo ./cmd/demo
 
+
+
+inspect-demo:
+	# Shows Version, Module, Build Mode, Compiler, Build Flags, GOARCH, GOOS, GOARM64, VCS, VCS Revision, VCS Time, VCS Modified
+	go version -m bin/demo
