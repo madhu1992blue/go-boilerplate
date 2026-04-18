@@ -1,5 +1,7 @@
 .PHONY: build-demo inspect-demo
 
+VERSION := $(shell git describe --tags --always --dirty)
+
 bin:
 	mkdir -p bin
 
@@ -14,9 +16,8 @@ build-demo: bin
 	#     -w: is used to remove the debug information from the compiled binary.
 	# -o bin/demo: is used to specify the output file name.
 	# ./cmd/demo: is the path to the main package.
-	CGO_ENABLED=0 go build -trimpath -pgo=auto -ldflags="-s -w" -o bin/demo ./cmd/demo
 
-
+	CGO_ENABLED=0 go build -trimpath -pgo=auto -ldflags="-s -w -X main.version=$(VERSION)" -o bin/demo ./cmd/demo
 
 inspect-demo:
 	# Shows Version, Module, Build Mode, Compiler, Build Flags, GOARCH, GOOS, GOARM64, VCS, VCS Revision, VCS Time, VCS Modified
