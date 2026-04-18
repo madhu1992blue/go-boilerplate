@@ -22,3 +22,9 @@ This contains:
     - Each subdirectory in "cmd" will have a "main" package with a "main" function that will be the entrypoint for that application.
     - We added a demo application in /cmd/demo
 
+# Let's ensure we can build
+
+- We added a Makefile for building the binary
+- make build-demo
+- Also, we will exclude bin from version control.
+
