@@ -13,3 +13,12 @@ This contains:
     - The name of the module (github.com/madhu1992blue/go-boilerplate)
 - go 1.26.2
     - The version of Go used (go 1.26.2)
+
+# Setup Project Structure for Application Entrypoint : /cmd
+
+- Create a directory called "cmd"
+    - Each subdirectory in "cmd" will be a separate application entrypoint.
+    - For example, if we have applications app1 and app2, we will have directories /cmd/app1 and /cmd/app2.
+    - Each subdirectory in "cmd" will have a "main" package with a "main" function that will be the entrypoint for that application.
+    - We added a demo application in /cmd/demo
+
