@@ -75,3 +75,5 @@ require (
 It also created a go.sum file with dependency versions and checksums.
 This ensures that we always use the same versions of the dependencies.
 
+Note: Don't run `go mod tidy` immediately. We haven't added any imports in the code - so it will remove the dependencies from go.mod. We should run `go mod tidy` after we add imports in the code.
+
