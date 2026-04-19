@@ -51,3 +51,27 @@ These variables tune the Green Tea GC and the Go scheduler while your applicatio
 | GOMEMLIMIT | A "soft" cap on total runtime memory usage. | 90% of RAM Limit | Unset | Critical. Prevents "OOM-Kills" in Kubernetes/Docker by forcing GC to trigger before a crash. |
 | GOGC | % of heap growth before GC triggers. | 100 (Default) | 100 | Medium. Green Tea GC is efficient enough that most apps no longer need to tweak this. |
 | GOMAXPROCS | Number of threads for Go code. | Match CPU Limit | Unset (Auto-detect) | High. Ensures the Go scheduler doesn't thrash when running in restricted CPU environments. |
+
+# Add Cobra Dependency
+
+```bash
+# -u : Updates the dependency if already present, else downloads and adds it.
+go get -u github.com/spf13/cobra@latest
+```
+
+This modified go.mod
+```
+module github.com/madhu1992blue/go-boilerplate
+
+go 1.26.2
+
+require (
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/spf13/cobra v1.10.2 // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
+)
+```
+
+It also created a go.sum file with dependency versions and checksums.
+This ensures that we always use the same versions of the dependencies.
+
