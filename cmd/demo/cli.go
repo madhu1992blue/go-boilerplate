@@ -43,7 +43,7 @@ var rootCmd = &cobra.Command{
 // filename doesn't matter.
 func main() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
+		fmt.Fprintf(os.Stderr, "%s\n", err.Error())
 		os.Exit(1)
 	}
 }
