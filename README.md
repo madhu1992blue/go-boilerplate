@@ -77,3 +77,12 @@ This ensures that we always use the same versions of the dependencies.
 
 Note: Don't run `go mod tidy` immediately. We haven't added any imports in the code - so it will remove the dependencies from go.mod. We should run `go mod tidy` after we add imports in the code.
 
+# Run the application with different error scenarios
+
+- make build-demo && ./bin/demo
+- ./bin/demo simulate-validation-error
+    - This shows usage info before the error
+    - Exits with code 1
+- ./bin/demo simulate-logic-error
+    - This doesn't show usage info as its not related to how user used it.
+    - Exits with code 1
